@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magevolve Ltd.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="metab" translate="label" sortOrder="500">
+            <label>Magevolve Extensions</label>
+        </tab>
+        <section id="cmb" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Request a Callback</label>
+            <tab>metab</tab>
+            <resource>Me_Cmb::config_cmb</resource>
+            <group id="basic" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Basic</label>
+                <field id="active" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable extension.</comment>
+                </field>
+            </group>
+            <group id="date" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Date and Time</label>
+                <field id="show_predefined" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Predefined Times</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Me\Cmb\Model\System\Config\Backend\Check</backend_model>
+                    <comment>Show predefined times as drop down.</comment>
+                </field>
+                <field id="predefined_times" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Predefined Times</label>
+                    <frontend_model>Me\Cmb\Block\Adminhtml\Form\Field\Predefined</frontend_model>
+                    <backend_model>Me\Cmb\Model\System\Config\Backend\Predefined</backend_model>
+                    <comment>Please add predefined time intervals. For example: Between 9:00 and 11:00 am.</comment>
+                    <depends>
+                        <field id="show_predefined">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="messages" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Messages</label>
+                <field id="success_message" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Success Message</label>
+                    <comment>The success message after the form was submitted. You can use HTML tags for formatting.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="success_delay" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Success Message Delay</label>
+                    <comment>The delay time in seconds until the success message appears. For example: 5. This value range is 5-30.</comment>
+                    <validate>required-entry validate-not-negative-number validate-digits-range digits-range-5-30</validate>
+                </field>
+            </group>
+            <group id="email" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Options</label>
+                <field id="email_enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Email Notification</label>
+                    <comment>Please select yes to enable email notification when callback request submitted.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="recipient_email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Emails To</label>
+                    <comment>Please enter recipient email address.</comment>
+                    <validate>validate-email</validate>
+                    <depends>
+                        <field id="email_enable">1</field>
+                    </depends>
+                </field>
+                <field id="sender_email_identity" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <comment>Please select the sender email address from the default configuration.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="email_enable">1</field>
+                    </depends>
+                </field>
+                <field id="email_template" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="email_enable">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="honeypot" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Spam Protection</label>
+                <field id="honeypot_enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Honeypot</label>
+                    <comment>Please select yes to enable spam protection when callback request submitted.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

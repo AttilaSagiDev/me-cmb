@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magevolve Ltd. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cmb>
+            <basic>
+                <active>0</active>
+            </basic>
+            <date>
+                <show_predefined>0</show_predefined>
+            </date>
+            <messages>
+                <success_message><![CDATA[Thank you for contacting us.]]></success_message>
+                <success_delay>5</success_delay>
+            </messages>
+            <email>
+                <email_enable>0</email_enable>
+                <recipient_email>
+                    <![CDATA[hello@example.com]]>
+                </recipient_email>
+                <sender_email_identity>custom2</sender_email_identity>
+                <email_template>cmb_email_email_template</email_template>
+            </email>
+            <honeypot>
+                <honeypot_enable>0</honeypot_enable>
+            </honeypot>
+        </cmb>
+    </default>
+</config>

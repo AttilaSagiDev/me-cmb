@@ -1,0 +1,169 @@
+<?php
+/**
+ * Copyright © 2016 Magevolve Ltd. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block Me\Cmb\Block\Widget\Cmb
+ */
+?>
+<?php if ($block->getHelper()->isEnabled()) : ?>
+    <div class="block widget block-me-cmb">
+        <?php
+        $dateFormat = $block->getDateFormat();
+        $cartIcon = $block->getCalIcon();
+        $yearsRange = $block->getYearsRange();
+        $maxDate = $block->getMaxDate();
+        ?>
+        <?php if ($block->getShowTitle()) : ?>
+            <div class="block-title">
+                <strong role="heading" aria-level="2">
+                    <?php echo $block->escapeHtml($block->getTitle()); ?>
+                </strong>
+            </div>
+        <?php endif; ?>
+        <div class="block-content">
+            <div class="me-cmb-message message" style="display: none;"></div>
+            <form class="form me-cmb-form"
+                  action="#"
+                  id="me-cmb-form"
+                  method="post"
+                  data-hasrequired="<?php /* @noEscape */ echo __('* Required Fields') ?>"
+                  data-mage-init='{"validation":{}, "loader": {}}'>
+                <fieldset class="fieldset">
+                    <?php if ($block->getShowSubtitle()) : ?>
+                        <div class="field note no-label">
+                            <?php /* @noEscape */ echo $block->getSubTitle() ?>
+                        </div>
+                    <?php endif; ?>
+                    <input id="me-cmb-form-key" type="hidden"
+                           name="form_key"
+                           value="<?php echo $block->escapeHtml($block->getFormKey()) ?>"/>
+                    <?php echo $block->getHoneypotHtml() ?>
+                    <div class="field field-full-name required">
+                        <label class="label" for="cmb_full_name">
+                        <span>
+                            <?php /* @noEscape */ echo __('Full Name') ?>
+                        </span>
+                        </label>
+                        <div class="control">
+                            <input name="cmb_full_name" id="cmb_full_name"
+                                   title="<?php /* @noEscape */ echo __('Full Name') ?>"
+                                   value="<?php echo $block->escapeHtml($block->getCustomerName()) ?>"
+                                   class="input-text" type="text"
+                                   data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                    <div class="field field-telephone required">
+                        <label class="label" for="cmb_telephone">
+                        <span>
+                            <?php /* @noEscape */ echo __('Telephone') ?>
+                        </span>
+                        </label>
+                        <div class="control">
+                            <input name="cmb_telephone" id="cmb_telephone"
+                                   title="<?php /* @noEscape */ echo __('Telephone') ?>"
+                                   value="<?php echo $block->escapeHtml($block->getCustomerPhone()) ?>"
+                                   class="input-text" type="text"
+                                   data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                    <?php if ($block->getShowCallDate()) : ?>
+                        <div class="field date field-call-date required">
+                            <label class="label" for="cmb_call_date">
+                            <span>
+                                <?php /* @noEscape */ echo __('Call Date') ?>
+                            </span>
+                            </label>
+                            <div class="control cmb_call_back">
+                                <input type="text" name="cmb_call_date"
+                                       id="cmb_call_date"
+                                       value=""
+                                       data-validate="{required:true}"/>
+                                <script type="text/javascript">
+                                    require(["jquery", "mage/calendar"], function ($) {
+                                        $("#cmb_call_date").calendar({
+                                            showsTime: false,
+                                            dateFormat: "<?php echo $block->escapeHtml($dateFormat) ?>",
+                                            buttonImage: "<?php echo $block->escapeHtml($cartIcon) ?>",
+                                            yearRange: "<?php echo $block->escapeHtml($yearsRange) ?>",
+                                            buttonText: "<?php /* @noEscape */ echo __('Select Date') ?>",
+                                            maxDate: "<?php echo $block->escapeHtml($maxDate) ?>",
+                                            minDate: "+0d",
+                                            changeMonth: true,
+                                            changeYear: true,
+                                            <?php if ($block->getDisableWeekends()) : ?>
+                                            beforeShowDay: $.datepicker.noWeekends,
+                                            <?php endif; ?>
+                                            showOn: "both"
+                                        })
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($block->getHelper()->getShowPredefined() && $block->getShowPredefinedTimes()) : ?>
+                        <div class="field field-predefined required">
+                            <label class="label" for="cmb_predefined">
+                            <span>
+                                <?php /* @noEscape */ echo __('Time') ?>
+                            </span>
+                            </label>
+                            <div class="control">
+                                <select name="cmb_predefined"
+                                        id="cmb_predefined"
+                                        class=""
+                                        title="<?php /* @noEscape */ echo __('Time') ?>"
+                                        data-validate="{'validate-select':true}"
+                                        aria-required="true">
+                                    <?php foreach ($block->getTimes() as $time) : ?>
+                                        <option value="<?php echo $block->escapeHtml($time) ?>">
+                                            <?php echo $block->escapeHtml($time) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($block->getShowCountry()) : ?>
+                        <div class="field field-country required">
+                            <label for="cmb_country" class="label">
+                            <span>
+                                <?php /* @noEscape */ echo __('Country') ?>
+                            </span>
+                            </label>
+                            <div class="control">
+                                <?php echo $block->getCountryHtmlSelect() ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </fieldset>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <input type="hidden" name="hideit" id="hideit" value=""/>
+                        <button id="me-cmb-ajax" type="submit"
+                                title="<?php /* @noEscape */ echo __('Request Callback') ?>"
+                                class="action submit primary">
+                        <span>
+                            <?php /* @noEscape */ echo __('Request Callback') ?>
+                        </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Me_Cmb/js/cmb": {
+                    "messageContent": ".me-cmb-message",
+                    "hideDelay": <?php /* @noEscape */ echo $block->getHelper()->getSuccessDelay() ?>,
+                    "url": "<?php echo $block->escapeXssInUrl($block->getAjaxUrl()) ?>",
+                    "formId": "#me-cmb-form"
+                }
+            }
+        }
+        </script>
+    </div>
+<?php endif; ?>

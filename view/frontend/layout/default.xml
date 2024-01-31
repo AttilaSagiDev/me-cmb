@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magevolve Ltd. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Me_Cmb::css/cmb.css" />
+    </head>
+    <body>
+        <!-- This is an example how to add via layout
+        <referenceContainer name="sidebar.additional">
+            <block class="Me\Cmb\Block\Widget\Cmb" name="me_cmb_sidebar" as="cmb" template="Me_Cmb::widget/cmb.phtml"/>
+        </referenceContainer>
+        -->
+    </body>
+</page>

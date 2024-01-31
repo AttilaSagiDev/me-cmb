@@ -1,0 +1,43 @@
+<!--
+/**
+ * Copyright © 2016 Magevolve Ltd. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject {{var store.getFrontendName()}}: Callback Notification @-->
+<!--@vars {
+"var cmb_full_name":"Full Name",
+"var cmb_telephone":"Telephone",
+"var cmb_call_date":"Call Date",
+"var cmb_predefined":"Call Time",
+"var cmb_country":"Country"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting"><strong>Request Callback Notification!</strong></p>
+            <p>New callback has been requested.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="margin-top: 15px;"><strong>{{trans 'Details:'}}</strong></p>
+            <p>{{trans "Name: %cmb_full_name" cmb_full_name=$cmb_full_name}}</p>
+            <p>{{trans "Phone Number: %cmb_telephone" cmb_telephone=$cmb_telephone}}</p>
+            {{depend cmb_call_date}}
+            <p>{{trans "Call Date: %cmb_call_date" cmb_call_date=$cmb_call_date}}</p>
+            {{/depend}}
+            {{depend cmb_predefined}}
+            <p>{{trans "Call Time: %cmb_predefined" cmb_predefined=$cmb_predefined}}</p>
+            {{/depend}}
+            {{depend cmb_country}}
+            <p>{{trans "Country: %cmb_country" cmb_country=$cmb_country}}</p>
+            {{/depend}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

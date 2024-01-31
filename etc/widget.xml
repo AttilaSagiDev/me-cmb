@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Magevolve Ltd. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="me_cmb" class="Me\Cmb\Block\Widget\Cmb" is_email_compatible="true"
+            placeholder_image="Me_Cmb::images/widget_cmb.png" ttl="86400">
+        <label translate="true">Magevolve Request a Callback</label>
+        <description translate="true">Request a Callback Form</description>
+        <parameters>
+            <parameter name="show_title" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display Block Title</label>
+                <description translate="true">Please select to show the block title or not.</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Block Title</label>
+                <description translate="true">Please customize block title.</description>
+                <depends>
+                    <parameter name="show_title" value="1" />
+                </depends>
+                <value>Request a Callback</value>
+            </parameter>
+            <parameter name="show_subtitle" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display Block Subtitle</label>
+                <description translate="true">Please select to show the block subtitle or not.</description>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" required="true" visible="true">
+                <label translate="true">Block Subtitle</label>
+                <description translate="true">The message of the Request Callback block after the title. You can use HTML tags for formatting.</description>
+                <depends>
+                    <parameter name="show_subtitle" value="1" />
+                </depends>
+                <value>Please submit the form and we will call you back.</value>
+            </parameter>
+            <parameter name="show_call_date" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display Call Date</label>
+                <description translate="true">Please select to show the call date or not.</description>
+            </parameter>
+            <parameter name="disable_weekends" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Disable Weekends</label>
+                <description translate="true">Please select to show the weekends or not.</description>
+                <depends>
+                    <parameter name="show_call_date" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="show_predefined" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display Call Times</label>
+                <description translate="true">Please select to show the call times or not.</description>
+            </parameter>
+            <parameter name="show_country" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display Country Drop Down</label>
+                <description translate="true">Please select to show the country drop down or not.</description>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/cmb.phtml" selected="true">
+                        <label translate="true">Request a Callback Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

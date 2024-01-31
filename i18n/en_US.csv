@@ -1,0 +1,89 @@
+"Predefined Interval","Predefined Interval"
+"Add More","Add More"
+"Request a Callback","Request a Callback"
+"Manage Callbacks","Manage Callbacks"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the item.","Something went wrong while saving the item."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Full Name","Full Name"
+Telephone,Telephone
+Status,Status
+"To apply changes you should fill in hidden required ""%1"" field","To apply changes you should fill in hidden required ""%1"" field"
+"Extension disabled. The page will reload automatically.","Extension disabled. The page will reload automatically."
+"Invalid form key. The page will reload automatically.","Invalid form key. The page will reload automatically."
+"SPAM detection on form submit! The page will reload automatically.","SPAM detection on form submit! The page will reload automatically."
+"We can't save the request","We can't save the request"
+"Empty form values","Empty form values"
+New,New
+Pending,Pending
+Done,Done
+"Could not save the item: %1","Could not save the item: %1"
+"Cmb item with id ""%1"" does not exist.","Cmb item with id ""%1"" does not exist."
+"Please add predefined times!","Please add predefined times!"
+"All Store Views","All Store Views"
+N/A,N/A
+Unknown,Unknown
+Delete,Delete
+"Delete ""${ $.$data.cmb_full_name }""","Delete ""${ $.$data.cmb_full_name }"""
+"Are you sure you wan't to delete a ""${ $.$data.cmb_full_name }"" record?","Are you sure you wan't to delete a ""${ $.$data.cmb_full_name }"" record?"
+"* Required Fields","* Required Fields"
+"Call Date","Call Date"
+"Select Date","Select Date"
+Time,Time
+Country,Country
+"Request Callback","Request Callback"
+Details:,Details:
+"Name: %cmb_full_name","Name: %cmb_full_name"
+"Phone Number: %cmb_telephone","Phone Number: %cmb_telephone"
+"Call Date: %cmb_call_date","Call Date: %cmb_call_date"
+"Call Time: %cmb_predefined","Call Time: %cmb_predefined"
+"Country: %cmb_country","Country: %cmb_country"
+"Magevolve Extensions","Magevolve Extensions"
+Basic,Basic
+"Enable Extension","Enable Extension"
+"Enable extension.","Enable extension."
+"Date and Time","Date and Time"
+"Show Predefined Times","Show Predefined Times"
+"Show predefined times as drop down.","Show predefined times as drop down."
+"Predefined Times","Predefined Times"
+"Please add predefined time intervals. For example: Between 9:00 and 11:00 am.","Please add predefined time intervals. For example: Between 9:00 and 11:00 am."
+Messages,Messages
+"Success Message","Success Message"
+"Success Message Delay","Success Message Delay"
+"Email Options","Email Options"
+"Enable Email Notification","Enable Email Notification"
+"Send Emails To","Send Emails To"
+"Email Sender","Email Sender"
+"Email Template","Email Template"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","Email template chosen based on theme fallback when ""Default"" option is selected."
+"Spam Protection","Spam Protection"
+"Enable Honeypot","Enable Honeypot"
+"Magevolve Request a Callback","Magevolve Request a Callback"
+"Request a Callback Form","Request a Callback Form"
+"Display Block Title","Display Block Title"
+"Please select to show the block title or not.","Please select to show the block title or not."
+"Block Title","Block Title"
+"Please customize block title.","Please customize block title."
+"Display Block Subtitle","Display Block Subtitle"
+"Please select to show the block subtitle or not.","Please select to show the block subtitle or not."
+"Block Subtitle","Block Subtitle"
+"The message of the Request Callback block after the title. You can use HTML tags for formatting.","The message of the Request Callback block after the title. You can use HTML tags for formatting."
+"Display Call Date","Display Call Date"
+"Please select to show the call date or not.","Please select to show the call date or not."
+"Disable Weekends","Disable Weekends"
+"Please select to show the weekends or not.","Please select to show the weekends or not."
+"Display Call Times","Display Call Times"
+"Please select to show the call times or not.","Please select to show the call times or not."
+"Display Country Drop Down","Display Country Drop Down"
+"Please select to show the country drop down or not.","Please select to show the country drop down or not."
+Template,Template
+"Request a Callback Template","Request a Callback Template"
+"Cache Lifetime (Seconds)","Cache Lifetime (Seconds)"
+"86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.","86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache."
+"Store View","Store View"
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Edit,Edit
+ID,ID
+Times,Times
+Created,Created
